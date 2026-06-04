@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# roblox-clothing-ai
-AI-powered Roblox clothing generator that creates shirt and hoodie textures from text prompts.
-=======
 # Roblox Clothing AI
 
 A Cloudflare Pages website that lets users generate Roblox shirt template PNGs from text prompts.
@@ -22,6 +18,7 @@ A Cloudflare Pages website that lets users generate Roblox shirt template PNGs f
 - `wrangler.toml` — Cloudflare Pages configuration
 - `package.json` — project metadata
 - `.gitignore` — ignored files
+- `.env.example` — sample local environment file
 
 ## Setup
 
@@ -31,11 +28,12 @@ A Cloudflare Pages website that lets users generate Roblox shirt template PNGs f
 npm install -g @cloudflare/wrangler
 ```
 
-2. Set your OpenAI API key in Cloudflare Pages environment variables:
+2. Configure your OpenAI API key:
 
-- `OPENAI_API_KEY`
+- In Cloudflare Pages: set `OPENAI_API_KEY` in the Pages project environment variables.
+- Locally: copy `.env.example` to `.env` and put your key there, or export `OPENAI_API_KEY` in your shell.
 
-3. Deploy to Cloudflare Pages or run locally:
+3. Run locally:
 
 ```bash
 wrangler pages dev ./public --port 8787
@@ -45,7 +43,7 @@ Then open `http://127.0.0.1:8787`.
 
 ## Notes
 
-- The function expects a valid OpenAI Images API key.
+- The function requires `OPENAI_API_KEY` to be set.
+- If you see the error `OpenAI API key not configured.`, the key is missing from Cloudflare Pages or your local environment.
 - The prompt is converted into an image request sized at `585x559`.
-- If you want to deploy this to GitHub and connect to Cloudflare, push this folder to your repository and configure Pages to use it.
->>>>>>> 5ddecc6 (Add Cloudflare Pages Roblox clothing AI site)
+- To deploy to GitHub and Cloudflare, push this folder to your repository and configure Pages to use it.
