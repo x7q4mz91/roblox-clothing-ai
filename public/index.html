@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roblox Clothing AI</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Roblox Clothing AI</h1>
+        <p>Ask the AI to generate a Roblox shirt template, then download the PNG ready for upload.</p>
+      </header>
+
+      <form id="prompt-form">
+        <label for="prompt">Design prompt</label>
+        <input id="prompt" name="prompt" placeholder="Make me a cool hoodie" required />
+        <button type="submit">Generate design</button>
+      </form>
+
+      <section class="preview">
+        <h2>Preview</h2>
+        <div class="preview-box">
+          <img id="result-image" alt="Generated Roblox shirt template preview" />
+          <div id="status">Enter a prompt and generate your design.</div>
+        </div>
+        <button id="download-button" disabled>Download PNG</button>
+      </section>
+
+      <footer>
+        <p>Powered by Cloudflare Pages Functions and OpenAI.</p>
+      </footer>
+    </div>
+
+    <script src="/script.js"></script>
+  </body>
+</html>

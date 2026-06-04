@@ -1,0 +1,5 @@
+name = "roblox-clothing-ai"
+compatibility_date = "2026-06-04"
+
+[vars]
+  OPENAI_API_KEY = "REPLACE_WITH_YOUR_OPENAI_API_KEY"
