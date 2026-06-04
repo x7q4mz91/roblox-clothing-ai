@@ -1,4 +1,4 @@
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost({ request, I env }) {
   try {
     const body = await request.json();
     const prompt = body.prompt?.toString().trim();
@@ -10,9 +10,11 @@ export async function onRequestPost({ request, env }) {
       });
     }
 
-    const openaiKey = env.OPENAI_API_KEY;
+    const openaiKey = env.OPENAI_API_KEY || env.OPENAI_KEY || env.OPENAI_API_KEY_SECRET || env.OPENAI;
     if (!openaiKey) {
-      return new Response(JSON.stringify({ error: 'OpenAI API key not configured.' }), {
+      return new Response(JSON.stringify({
+        error: 'OpenAI API key not configured. Ensure OPENAI_API_KEY is added as a Secret in Cloudflare Pages production environment variables and redeploy.'
+      }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
