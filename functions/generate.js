@@ -10,7 +10,11 @@ export async function onRequestPost({ request, env }) {
       });
     }
 
-    const openaiKey = env.OPENAI_API_KEY || env.OPENAI_KEY || env.OPENAI_API_KEY_SECRET || env.OPENAI;
+    const openaiKey = [env.OPENAI_API_KEY, env.OPENAI_KEY, env.OPENAI_API_KEY_SECRET, env.OPENAI]
+      .find((value) => value !== undefined && value !== null)
+      ?.toString()
+      .trim();
+
     if (!openaiKey) {
       return new Response(JSON.stringify({
         error: 'OpenAI API key not configured. Ensure OPENAI_API_KEY is added as a Secret in Cloudflare Pages production environment variables and redeploy.'
