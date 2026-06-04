@@ -36,7 +36,6 @@ export async function onRequestPost({ request, env }) {
         model: 'gpt-image-1',
         prompt: imagePrompt,
         size: '585x559',
-        response_format: 'b64_json',
         n: 1,
       }),
     });
