@@ -1,4 +1,4 @@
-export async function onRequestPost({ request, I env }) {
+export async function onRequestPost({ request, env }) {
   try {
     const body = await request.json();
     const prompt = body.prompt?.toString().trim();
